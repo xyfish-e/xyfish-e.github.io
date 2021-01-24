@@ -13,6 +13,7 @@ main {
 }
 
 h1 {
+	background-color: rgba(250, 9, 238, 0.966);
   font-size: 2em;
   margin: .67em 0
 }
