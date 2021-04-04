@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1 机器学习-机器学习基础 | XyIb_Bbbblog</title><meta name="keywords" content="笔记,机器学习"><meta name="author" content="XyIb"><meta name="copyright" content="XyIb"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="1 何谓机器学习简单地说，机器学习就是把无序的数据转换成有用的信息。 因为现实世界中无法对许多问题建立精确模型，机器学习用到了统计学的知识。 2 关键术语机器学习的主要任务是分类。 首先需要做的是算法训练，即学习如何分类。通常我们为算法输入大量已分类数据作为算法的训练集。训练集是用于训练机器学习算法的数据样本集合。每个训练样本有其的特征。 目标变量是机器学习算法的预测结果，在分类算法中目标变量的类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 机器学习-机器学习基础">
+<meta property="og:url" content="https://xyfish-e.github.io/2021/04/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="XyIb_Bbbblog">
+<meta property="og:description" content="1 何谓机器学习简单地说，机器学习就是把无序的数据转换成有用的信息。 因为现实世界中无法对许多问题建立精确模型，机器学习用到了统计学的知识。 2 关键术语机器学习的主要任务是分类。 首先需要做的是算法训练，即学习如何分类。通常我们为算法输入大量已分类数据作为算法的训练集。训练集是用于训练机器学习算法的数据样本集合。每个训练样本有其的特征。 目标变量是机器学习算法的预测结果，在分类算法中目标变量的类">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn.pixabay.com/photo/2019/01/22/10/58/pixel-cells-3947912__340.png">
+<meta property="article:published_time" content="2021-04-04T09:16:45.000Z">
+<meta property="article:modified_time" content="2021-04-04T12:09:54.324Z">
+<meta property="article:author" content="XyIb">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2019/01/22/10/58/pixel-cells-3947912__340.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://xyfish-e.github.io/2021/04/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2021-04-04 20:09:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://w.wallhaven.cc/full/v9/wallhaven-v9mk6l.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.pixabay.com/photo/2017/09/08/19/05/a-2729781__340.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">XyIb_Bbbblog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">1 机器学习-机器学习基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2021-04-04T09:16:45.000Z" title="發表於 2021-04-04 17:16:45">2021-04-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2021-04-04T12:09:54.324Z" title="更新於 2021-04-04 20:09:54">2021-04-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-何谓机器学习"><a href="#1-何谓机器学习" class="headerlink" title="1 何谓机器学习"></a>1 何谓机器学习</h2><p>简单地说，机器学习就是把无序的数据转换成有用的信息。</p>
+<p>因为现实世界中无法对许多问题建立精确模型，机器学习用到了统计学的知识。</p>
+<h2 id="2-关键术语"><a href="#2-关键术语" class="headerlink" title="2 关键术语"></a>2 关键术语</h2><p>机器学习的主要任务是<strong>分类</strong>。</p>
+<p>首先需要做的是算法训练，即学习如何分类。通常我们为算法输入大量已分类数据作为算法的训练集。<strong>训练集</strong>是用于训练机器学习算法的数据样本集合。每个训练样本有其的特征。</p>
+<p><strong>目标变量</strong>是机器学习算法的预测结果，在<strong>分类算法</strong>中目标变量的类型通常是<strong>标称型</strong>的，而在<strong>回归算法</strong>中通常是<strong>连续型</strong>的。</p>
+<p>训练样本集必须确定知道目标变量的值，以便机器学习算法可以发现<strong>特征和目标变量之间的关系</strong>。</p>
+<p>我们通常将分类问题中的目标变量称为<strong>类别</strong>，并假定分类问题只存在有限个数的类别。</p>
+<p>注意 ：特征或者属性通常是训练样本集的列，它们是独立测量得到的结果，多个特征联系在一起共同组成一个训练样本。</p>
+<p>为了测试机器学习算法的效果，通常使用两套独立的样本集：<strong>训练数据</strong>和<strong>测试数据</strong>。</p>
+<p>当机器学习程序开始运行时，使用训练样本集作为算法的输入，训练完成之后输入测试样本。输入测试样本时并不提供测试样本的目标变量，由程序决定样本属于哪个类别。比较测试样本预测的目标变量值与实际样本类别之间的差别，就可以得出算法的实际精确度。</p>
+<h2 id="3-机器学习的主要任务"><a href="#3-机器学习的主要任务" class="headerlink" title="3 机器学习的主要任务"></a>3 机器学习的主要任务</h2><p>上节的例子介绍了机器学习如何解决分类问题，它的主要任务是将实例数据划分到合适的分类中。机器学习的另一项任务是<strong>回归</strong>，它主要用于<strong>预测数值型数据</strong>。</p>
+<p>分类和回归属于<strong>监督学习</strong>，之所以称之为监督学习，是因为这类算法必须知道预测什么，即目标变量的分类信息。</p>
+<p>与监督学习相对应的是<strong>无监督学习</strong>，此时数据没有类别信息，也不会给定目标值。在无监督学习中，将数据集合分成由类似的对象组成的多个类的过程被称为<strong>聚类</strong>；将寻找描述数据统计值的过程称之为<strong>密度估计</strong>。此外，无监督学习还可以<strong>减少数据特征的维度</strong>，以便我们可以使用二维或三维图形更加直观地展示数据信息。</p>
+<p>用于执行分类、回归、聚类和密度估计的机器学习算法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">监督学习的用途</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">k-近邻算法</td>
+<td>线性回归</td>
+</tr>
+<tr>
+<td align="center">朴素贝叶斯算法</td>
+<td>局部加权线性回归</td>
+</tr>
+<tr>
+<td align="center">支持向量机</td>
+<td>Ridge回归</td>
+</tr>
+<tr>
+<td align="center">决策树</td>
+<td>Lasso最小回归系数估计</td>
+</tr>
+<tr>
+<td align="center"><strong>无监督学习的用途</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">K-均值</td>
+<td>最大期望算法</td>
+</tr>
+<tr>
+<td align="center">DBSCAN</td>
+<td>Parzen窗设计</td>
+</tr>
+</tbody></table>
+<h2 id="4-如何选择合适的算法"><a href="#4-如何选择合适的算法" class="headerlink" title="4 如何选择合适的算法"></a>4 如何选择合适的算法</h2><p>选择算法时考虑以下两个问题：</p>
+<p><strong>Ⅰ 使用机器学习算法的目的，想要算法完成何种任务</strong></p>
+<p>如果想要预测目标变量的值，则可以选择监督学习算法，否则可以选择无监督学习算法。</p>
+<p>确定选择监督学习算法之后，需要进一步确定目标变量类型，如果目标变量是离散型，则可以选择分类算法；如果目标变量是连续型的数值，则需要选择回归算法。</p>
+<p>如果不想预测目标变量的值，则可以选择无监督学习算法。进一步分析是否需要将数据划分为离散的组。如果这是唯一的需求，则使用聚类算法；如果还需要估计数据与每个分组的相似程度，则需要使用密度估计算法。</p>
+<p><strong>Ⅱ 需要分析或收集的数据是什么</strong></p>
+<p>应该了解数据的以下特性：特征值是离散型变量还是连续型变量，特征值中是否存在缺失的值，何种原因造成缺失值，数据中是否存在异常值，某个特征发生的频率如何（是否罕见得如同海底捞针）等等。充分了解上面提到的这些数据特性可以缩短选择机器学习算法的时间。</p>
+<p>我们只能在一定程度上缩小算法的选择范围，一般并不存在最好的算法或者可以给出最好结果的算法，同时还要尝试不同算法的执行效果。对于所选的每种算法，都可以使用其他的机器学习技术来改进其性能。在处理输入数据之后，两个算法的相对性能也可能会发生变化。一般说来发现最好算法的关键环节是反复试错的迭代过程。</p>
+<p>其实机器学习算法虽然各不相同，但是使用算法创建应用程序的步骤却基本类似。</p>
+<h2 id="5-开发机器学习应用程序的步骤"><a href="#5-开发机器学习应用程序的步骤" class="headerlink" title="5 开发机器学习应用程序的步骤"></a>5 开发机器学习应用程序的步骤</h2><p>（1）收集数据</p>
+<p>我们可以使用很多方法收集样本数据，如：制作网络爬虫从网站上抽取数据、从RSS反馈或者API中得到信息、设备发送过来的实测数据（风速、血糖等）。提取数据的方法非常多，为了节省时间与精力，可以使用公开可用的数据源。</p>
+<p>（2）准备输入数据</p>
+<p>得到数据之后，还必须确保数据格式符合要求，使用标准数据格式可以融合算法和数据源，方便匹配操作。此外还需要为机器学习算法准备特定的数据格式，如某些算法要求特征值使用特定的格式，一些算法要求目标变量和特征值是字符串类型，而另一些算法则可能要求是整数类型。</p>
+<p>（3）分析输入数据</p>
+<p>此步骤主要是人工分析以前得到的数据。为了确保前两步有效，最简单的方法是用文本编辑器打开数据文件，查看得到的数据是否为空值。此外，还可以进一步浏览数据，分析是否可以识别出模式；数据中是否存在明显的异常值，如某些数据点与数据集中的其他值存在明显的差异。通过一维、二维或三维图形展示数据也是不错的方法，然而大多数时候我们得到数据的特征值都不会低于三个，无法一次图形化展示所有特征。这一步的主要作用是确保数据集中没有垃圾数据。</p>
+<p>（4）训练算法</p>
+<p>根据算法的不同，第4步和第5步是机器学习算法的核心。我们将前两步得到的格式化数据输入到算法，从中抽取知识或信息。这里得到的知识需要存储为计算机可以处理的格式，方便后续步骤使用。如果使用无监督学习算法，由于不存在目标变量值，故而也不需要训练算法，所有与算法相关的内容都集中在第5步。</p>
+<p>（5）测试算法</p>
+<p>这一步将实际使用第4步机器学习得到的知识信息。为了评估算法，必须测试算法工作的效果。对于监督学习，必须已知用于评估算法的目标变量值；对于无监督学习，也必须用其他的评测手段来检验算法的成功率。无论哪种情形，如果不满意算法的输出结果，则可以回到第4步，改正并加以测试。问题常常会跟数据的收集和准备有关，这时你就必须跳回第1步重新开始。</p>
+<p>（6）使用算法</p>
+<p>将机器学习算法转换为应用程序，执行实际任务，以检验上述步骤是否可以在实际环境中正常工作。此时如果碰到新的数据问题，同样需要重复执行上述的步骤。</p>
+<h2 id="6-Python语言的优势"><a href="#6-Python语言的优势" class="headerlink" title="6 Python语言的优势"></a>6 Python语言的优势</h2><p>Python语言：</p>
+<p>（1）Python的语法清晰；（2）易于操作纯文本文件；（3）使用广泛，存在大量的开发文档。</p>
+<p>默认安装的Python开发环境已经附带了很多高级数据类型，如列表、元组、字典、集合、队列等，无需进一步编程就可以使用这些数据类型的操作。使用这些数据类型使得实现抽象的数学概念非常简单。此外，读者还可以使用自己熟悉的编程风格，如面向对象编程、面向过程编程、或者函数式编程。</p>
+<p>Python的科学工具可以与绘图工具Matplotlib协同工作。Matplotlib可以绘制2D、3D图形，也可以处理科学研究中经常使用到的图形。</p>
+<p>Python开发环境还提供了交互式shell环境，允许用户开发程序时查看和检测程序内容。</p>
+<p>Python开发环境将来还会集成Pylab模块，它将NumPy、SciPy和Matplotlib合并为一个开发环境。</p>
+<p>Python语言唯一的不足是性能问题。Python程序运行的效率不如Java或者C代码高，但是我们可以使用Python调用C编译的代码。这样，我们就可以同时利用C和Python的优点，逐步地开发机器学习应用程序。</p>
+<h2 id="7-NumPy函数库基础"><a href="#7-NumPy函数库基础" class="headerlink" title="7 NumPy函数库基础"></a>7 NumPy函数库基础</h2><p>NumPy是高性能科学计算和数据分析的基础包。部分功能如下：</p>
+<ul>
+<li><ul>
+<li>ndarray, 具有矢量算术运算和复杂广播能力的快速且节省空间的多维数组。</li>
+<li>用于对整组数据进行快速运算的标准数学函数（无需编写循环）。</li>
+<li>用于读写磁盘数据的工具以及用于操作内存映射文件的工具。</li>
+<li>线性代数、随机数生成以及傅里叶变换功能。</li>
+<li>用于集成C、C++、Fortran等语言编写的代码的工具。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> numpy <span class="keyword">import</span> *     <span class="comment">#将NumPy函数库中的所有模块引入当前的命名空间</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.rand(<span class="number">4</span>,<span class="number">4</span>)        <span class="comment">#构造了一个4×4的随机数组，因为产生的是随机数组，不同计算机的输出结果可能与上述结果完全不同</span></span><br><span class="line">array([[<span class="number">0.57937601</span>, <span class="number">0.16919573</span>, <span class="number">0.46969376</span>, <span class="number">0.70073182</span>],</span><br><span class="line">       [<span class="number">0.64018704</span>, <span class="number">0.93488857</span>, <span class="number">0.75728984</span>, <span class="number">0.91630009</span>],</span><br><span class="line">       [<span class="number">0.88598247</span>, <span class="number">0.86555117</span>, <span class="number">0.77155827</span>, <span class="number">0.45289082</span>],</span><br><span class="line">       [<span class="number">0.95040287</span>, <span class="number">0.1163646</span> , <span class="number">0.66291434</span>, <span class="number">0.69960403</span>]])</span><br></pre></td></tr></table></figure>
+<p>NumPy矩阵与数组的区别：</p>
+<p>NumPy函数库中存在两种不同的数据类型（矩阵matrix和数组array），都可以用于处理行列表示的数字元素。虽然它们看起来很相似，但是在这两个数据类型上执行相同的数学运算可能得到不同的结果，其中NumPy函数库中的matrix与MATLAB中matrices等价。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>randMat = mat(random.rand(<span class="number">4</span>,<span class="number">4</span>))    <span class="comment">#调用mat()函数可以将数组转化为矩阵</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>randMat.I                          <span class="comment">#使用随机函数产生矩阵，不同计算机上输出的值可能略有不同,.I操作符实现了矩阵求逆的运算</span></span><br><span class="line">matrix([[ <span class="number">1.29749431</span>, -<span class="number">2.77024529</span>,  <span class="number">0.23348744</span>,  <span class="number">1.391087</span>  ],</span><br><span class="line">        [-<span class="number">1.44932934</span>,  <span class="number">2.70245778</span>,  <span class="number">1.0396595</span> , -<span class="number">1.27009795</span>],</span><br><span class="line">        [-<span class="number">5.53694199</span>,  <span class="number">3.1237225</span> , -<span class="number">0.14356669</span>,  <span class="number">2.82373325</span>],</span><br><span class="line">        [ <span class="number">5.26946993</span>, -<span class="number">0.80534835</span>, -<span class="number">0.85644324</span>, -<span class="number">3.11104338</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>invRandMat = randMat.I    <span class="comment">#存储逆矩阵</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>randMat*invRandMat        <span class="comment">#执行矩阵乘法，得到矩阵与其逆矩阵相乘的结果：</span></span><br><span class="line">matrix([[ <span class="number">1.00000000e+00</span>,  <span class="number">1.63861095e-16</span>,  <span class="number">6.08866867e-17</span>,</span><br><span class="line">         -<span class="number">2.59981854e-16</span>],</span><br><span class="line">        [ <span class="number">2.50313810e-16</span>,  <span class="number">1.00000000e+00</span>, -<span class="number">7.20454799e-18</span>,</span><br><span class="line">          <span class="number">9.69012542e-17</span>],</span><br><span class="line">        [-<span class="number">3.84521880e-16</span>,  <span class="number">2.27830450e-17</span>,  <span class="number">1.00000000e+00</span>,</span><br><span class="line">         -<span class="number">7.87571088e-17</span>],</span><br><span class="line">        [ <span class="number">1.39692259e-17</span>,  <span class="number">5.88281345e-18</span>,  <span class="number">1.78627607e-17</span>,</span><br><span class="line">          <span class="number">1.00000000e+00</span>]])</span><br></pre></td></tr></table></figure>
+<p>结果应该是单位矩阵，除了对角线元素是1,4×4矩阵的其他元素应该全是0。实际输出结果略有不同，矩阵里还留下了许多非常小的元素，这是计算机处理误差产生的结果。输入下述命令，得到误差值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>myEye = randMat*invRandMat   <span class="comment">#函数eye(4)创建4×4的单位矩阵</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>myEye - eye(<span class="number">4</span>)</span><br><span class="line">matrix([[ <span class="number">4.44089210e-16</span>,  <span class="number">1.63861095e-16</span>,  <span class="number">6.08866867e-17</span>,</span><br><span class="line">         -<span class="number">2.59981854e-16</span>],</span><br><span class="line">        [ <span class="number">2.50313810e-16</span>,  <span class="number">0.00000000e+00</span>, -<span class="number">7.20454799e-18</span>,</span><br><span class="line">          <span class="number">9.69012542e-17</span>],</span><br><span class="line">        [-<span class="number">3.84521880e-16</span>,  <span class="number">2.27830450e-17</span>,  <span class="number">2.22044605e-16</span>,</span><br><span class="line">         -<span class="number">7.87571088e-17</span>],</span><br><span class="line">        [ <span class="number">1.39692259e-17</span>,  <span class="number">5.88281345e-18</span>,  <span class="number">1.78627607e-17</span>,</span><br><span class="line">         -<span class="number">3.33066907e-16</span>]])</span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">XyIb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="https://xyfish-e.github.io/2021/04/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">https://xyfish-e.github.io/2021/04/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://xyfish-e.github.io" target="_blank">XyIb_Bbbblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.pixabay.com/photo/2019/01/22/10/58/pixel-cells-3947912__340.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/02/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/"><img class="next-cover" src="https://cdn.pixabay.com/photo/2017/06/12/04/21/database-2394312__340.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库原理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2020/01/16/操作系统1-概述/" title="1 操作系统-概述"><img class="cover" src="https://images.unsplash.com/photo-1536395268859-7cf1233a5d55?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">1 操作系统-概述</div></div></a></div><div><a href="/2020/01/18/操作系统3-死锁/" title="3 操作系统-死锁"><img class="cover" src="https://images.unsplash.com/photo-1536395268859-7cf1233a5d55?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-18</div><div class="title">3 操作系统-死锁</div></div></a></div><div><a href="/2020/01/20/操作系统5-设备管理/" title="5 操作系统-设备管理"><img class="cover" src="https://images.unsplash.com/photo-1536395268859-7cf1233a5d55?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-20</div><div class="title">5 操作系统-设备管理</div></div></a></div><div><a href="/2020/01/19/操作系统4-内存管理/" title="4 操作系统-内存管理"><img class="cover" src="https://images.unsplash.com/photo-1536395268859-7cf1233a5d55?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-19</div><div class="title">4 操作系统-内存管理</div></div></a></div><div><a href="/2020/01/21/操作系统6-链接/" title="6 操作系统-链接"><img class="cover" src="https://images.unsplash.com/photo-1536395268859-7cf1233a5d55?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-21</div><div class="title">6 操作系统-链接</div></div></a></div><div><a href="/2020/01/03/计算机网络1-概述/" title="1 计算机网络-概述"><img class="cover" src="https://www.stockvault.net//data/2007/03/01/98460/thumb16.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-03</div><div class="title">1 计算机网络-概述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%95%E8%B0%93%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">1 何谓机器学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%B3%E9%94%AE%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">2 关键术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">3 机器学习的主要任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4 如何选择合适的算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%BC%80%E5%8F%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.</span> <span class="toc-text">5 开发机器学习应用程序的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Python%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">6.</span> <span class="toc-text">6 Python语言的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-NumPy%E5%87%BD%E6%95%B0%E5%BA%93%E5%9F%BA%E7%A1%80"><span class="toc-number">7.</span> <span class="toc-text">7 NumPy函数库基础</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By XyIb</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字型"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="縮小字型"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
